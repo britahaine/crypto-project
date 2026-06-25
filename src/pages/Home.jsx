@@ -5,6 +5,7 @@ const Home = () => {
   const [cryptoList, setcryptoList] = useState([]);
   const [isLoading, setisLoading] = useState(true);
 
+  // function for fetching data from the api
   const fetchCryptoData = async () => {
     try {
       const data = await fetchCryptos();
@@ -22,7 +23,21 @@ const Home = () => {
 
   return (
     <>
-      <div className="app"></div>
+      <div className="app">
+        {isLoading ? (
+          <>
+            <div className="loading"></div>
+            <div className="spinner"></div>
+            <p>Loading crypto data....</p>
+          </>
+        ) : (
+          <div className="crypto-container">
+            {cryptoList.map((crypto, key) => (
+              <CryptoCard />
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };
