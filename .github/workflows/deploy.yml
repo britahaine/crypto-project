@@ -25,9 +25,9 @@ jobs:
           npm run build
 
       - name: Deploy Production Files via Rsync
-        uses: Woodpecker-CI/plugin-deploy-rsync@v1.1.0
+        uses: AlekGlitch/rsync-deploy-action@v1.0.0
         env:
-          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOST: ${{ secrets.SERVER_HOST }}
           USER: ${{ secrets.SERVER_USER }}
           PORT: 2222
