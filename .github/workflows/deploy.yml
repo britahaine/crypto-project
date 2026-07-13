@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2 # Uses updated runtime wrappers
 
       - name: Setup Node.js Environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0 # Uses updated runtime wrappers
         with:
           node-version: 24
           cache: "npm"
