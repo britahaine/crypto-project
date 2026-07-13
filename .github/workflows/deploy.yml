@@ -25,11 +25,11 @@ jobs:
           npm run build
 
       - name: Deploy Production Files via Rsync
-        uses: AlekGlitch/rsync-deploy-action@v1.0.0
+        uses: easingthemes/ssh-deploy@main
         env:
-          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          HOST: ${{ secrets.SERVER_HOST }}
-          USER: ${{ secrets.SERVER_USER }}
-          PORT: 2222
-          TARGET: /var/www/crypto.britah.me/dist/
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          REMOTE_PORT: 2222
           SOURCE: dist/
+          TARGET: /var/www/crypto.britah.me/dist/
